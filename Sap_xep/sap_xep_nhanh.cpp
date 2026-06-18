@@ -27,9 +27,20 @@ int partition(vector<int> &arr, int low, int high) {
 }
 
 // Quick Sort
-void quickSort(vector<int> &arr, int low, int high) {
+void quickSort(vector<int> &arr, int low, int high) { 
     if (low < high) {
         int pi = partition(arr, low, high);
+
+        // In ra trạng thái mảng sau bước phân hoạch
+        cout << "Pivot = " << arr[pi] << " (doan [" << low << ", " << high << "]): ";
+        for (int i = 0; i < arr.size(); i++) {
+            if (i == pi) {
+                cout << "[" << arr[i] << "] "; // Đánh dấu phần tử chốt đã về đúng vị trí
+            } else {
+                cout << arr[i] << " ";
+            }
+        }
+        cout << endl;
 
         // Đệ quy sắp xếp các mảng con
         quickSort(arr, low, pi - 1);
@@ -39,7 +50,7 @@ void quickSort(vector<int> &arr, int low, int high) {
 
 int main() {
     int n;
-    // cout << "Nhap so luong phan tu: ";
+     cout << "Nhap so luong phan tu: ";
     cin >> n;
     
     vector<int> arr(n);
